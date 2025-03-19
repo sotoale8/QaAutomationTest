@@ -16,6 +16,7 @@ public class LoginPage {
        By usernameLocator = By.xpath("//input[@id='email']");
        By passwordLocator = By.xpath("//input[@placeholder='8 + caracteres']");
        By loginButtonLocator = By.xpath("//button[@type='button']");
+       By welcomeMessageLocator = By.xpath("//h5[normalize-space()='Hola, Alejandro']");
 
 
      //Constructor
@@ -41,5 +42,10 @@ public class LoginPage {
     public void submitLogin() {
         WebElement loginButtonElement = waitElement(loginButtonLocator);  // Espera hasta que el botón de login sea visible y clickeable
         loginButtonElement.click();
+    }
+
+    public String getMessage(){
+        WebElement messageElement = waitElement(welcomeMessageLocator);
+        return  messageElement.getText();
     }
 }
